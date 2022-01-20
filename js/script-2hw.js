@@ -82,10 +82,19 @@
 
 // /***/ Task number 5
 
-// const checkForSpam = function (message) {
-//   const messageArray = message.split(" ");
-//     console.log(messageArray);
+const checkForSpam = function (message) {
+  const messageArray = message.toLowerCase().split(" ");
+  console.log(messageArray);
 
-// };
+  if (messageArray.includes("spam")) {
+    // return messageArray.includes("spam");
+  }
+  if (messageArray.includes("sale")) {
+    // return messageArray.includes("sale");
+  }
+};
 
-// console.log(checkForSpam("Latest technology news"));
+console.log(checkForSpam("Latest technology news"));
+console.log(checkForSpam("JavaScript weekly newsletter"));
+console.log(checkForSpam("Get best sale offers now"));
+console.log(checkForSpam("[SPAM] How to earn fast money"));
