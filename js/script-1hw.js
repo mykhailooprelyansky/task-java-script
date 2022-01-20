@@ -117,3 +117,17 @@ for (let i = 0; i < 10; i++) {
   }
   number = number + +input;
 }
+
+// const sum = function () {
+//   let total = 0;
+
+//   for (const argument of arguments) {
+//     total += argument;
+//   }
+
+//   return total;
+// };
+
+// console.log(sum(1, 2, 3)); //  6
+// console.log(sum(1, 2, 3, 4)); //  10
+// console.log(sum(1, 2, 3, 4, 5)); //  15

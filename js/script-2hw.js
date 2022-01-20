@@ -82,25 +82,70 @@
 
 // /***/ Task number 5
 
-const checkForSpam = function (message) {
-  const messageArray = message
-    .toLowerCase()
-    .replace(/[\[\]]/g, "")
-    .split(" ");
-  console.log(messageArray);
+// const checkForSpam = function (message) {
+//   const messageArray = message
+//     .toLowerCase()
+//     .replace(/[\[\]]/g, "")
+//     .split(" ");
+//   console.log(messageArray);
 
-  for (const index of messageArray) {
+//   return messageArray.includes("spam") || messageArray.includes("sale");
+// };
+
+// console.log(checkForSpam("Latest technology news"));
+// console.log(checkForSpam("JavaScript weekly newsletter"));
+// console.log(checkForSpam("Get best sale offers now"));
+// console.log(checkForSpam("[SPAM] How to earn fast [money]"));
+
+// /***/ Task number 6
+
+// const addNumbers = function () {
+//   let input;
+//   const numbers = [];
+//   let total = 0;
+//   for (let i = 0; i < 10; i++) {
+//     input = prompt("Введите число");
+//     if (isNaN(input)) {
+//       alert("Было введено не число, попробуйте еще раз");
+//       return;
+//     }
+//     if (input === null) {
+//       alert(`Общая сумма чисел равна ${total}`);
+//       return;
+//     }
+//     if (input === "") {
+//       alert("Вы не указали значение");
+//       input = prompt("Введите число");
+//       return;
+//     }
+//     numbers.push(input);
+//   }
+// };
+// console.log(addNumbers());
+
+let input;
+const numbers = [];
+let total = 0;
+for (let i = 0; i < 10; i++) {
+  input = prompt("Введите число");
+  if (isNaN(input)) {
+    alert("Было введено не число, попробуйте еще раз");
+    break;
   }
+  if (input === null) {
+    alert(`Общая сумма чисел равна ${total}`);
+    break;
+  }
+  if (input === "") {
+    alert("Вы не указали значение");
+    input = prompt("Введите число");
+    break;
+  }
+  numbers.push(+input);
+}
+console.log(numbers);
 
-  // if (messageArray.includes("spam")) {
-  //   return messageArray.includes("spam");
-  // }
-  // if (messageArray.includes("sale")) {
-  //   return messageArray.includes("sale");
-  // }
-};
-
-console.log(checkForSpam("Latest technology news"));
-console.log(checkForSpam("JavaScript weekly newsletter"));
-console.log(checkForSpam("Get best sale offers now"));
-console.log(checkForSpam("[SPAM] How to earn fast [money]"));
+for (const number of numbers) {
+  total += number;
+}
+console.log(total);
