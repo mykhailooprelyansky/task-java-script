@@ -10,7 +10,7 @@
 
 // logItems([5, 10, 15, 20, 25, 30, 35, 40, 45, 50]);
 
-// /***/ Task number two
+// /***/ Task number 2
 
 // const calculateEngravingPrice = function (message, pricePerWord) {
 //   const array = message.split(" ");
@@ -99,53 +99,56 @@
 
 // /***/ Task number 6
 
-// const addNumbers = function () {
-//   let input;
-//   const numbers = [];
-//   let total = 0;
-//   for (let i = 0; i < 10; i++) {
-//     input = prompt("Введите число");
-//     if (isNaN(input)) {
-//       alert("Было введено не число, попробуйте еще раз");
-//       return;
-//     }
-//     if (input === null) {
-//       alert(`Общая сумма чисел равна ${total}`);
-//       return;
-//     }
-//     if (input === "") {
-//       alert("Вы не указали значение");
-//       input = prompt("Введите число");
-//       return;
-//     }
-//     numbers.push(input);
+// let input;
+// const numbers = [];
+// let total = 0;
+// for (let i = 0; i < 10; i++) {
+//   input = prompt("Введите число");
+//   if (isNaN(input)) {
+//     alert("Было введено не число, попробуйте еще раз");
+//     break;
 //   }
-// };
-// console.log(addNumbers());
+//   if (input === null) {
+//     alert(`Общая сумма чисел равна ${total}`);
+//     break;
+//   }
+//   if (input === "") {
+//     alert("Вы не указали значение");
+//     input = prompt("Введите число");
+//     break;
+//   }
+//   numbers.push(+input);
+// }
+// console.log(numbers);
 
-let input;
-const numbers = [];
-let total = 0;
-for (let i = 0; i < 10; i++) {
-  input = prompt("Введите число");
-  if (isNaN(input)) {
-    alert("Было введено не число, попробуйте еще раз");
-    break;
-  }
-  if (input === null) {
-    alert(`Общая сумма чисел равна ${total}`);
-    break;
-  }
-  if (input === "") {
-    alert("Вы не указали значение");
-    input = prompt("Введите число");
-    break;
-  }
-  numbers.push(+input);
-}
-console.log(numbers);
+// for (const number of numbers) {
+//   total += number;
+// }
+// console.log(total);
 
-for (const number of numbers) {
-  total += number;
-}
-console.log(total);
+// /***/ Task number 7
+
+const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
+
+const addLogin = function (allLogins, login) {
+  const isLoginValid = function (login) {
+    if (login.length < 4 || login.length > 16) {
+      return "Ошибка! Логин должен быть от 4 до 16 символов";
+    }
+    const isLoginUnique = function (allLogins, login) {
+      for (const allLogin of allLogins) {
+        if (allLogin === login) {
+          return "Такой логин уже используется!";
+        }
+        return "Логин успешно добавлен!";
+      }
+      allLogins.push(login);
+      console.log(allLogins);
+    };
+    isLoginUnique(allLogins, login);
+    return isLoginUnique(allLogins, login);
+  };
+  isLoginValid(login);
+  return isLoginValid(login);
+};
+console.log(addLogin(logins, "Ajax"));
