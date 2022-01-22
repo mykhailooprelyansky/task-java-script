@@ -128,27 +128,25 @@
 
 // /***/ Task number 7
 
-const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
+// const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
 
-const addLogin = function (allLogins, login) {
-  const isLoginValid = function (login) {
-    if (login.length < 4 || login.length > 16) {
-      return "Ошибка! Логин должен быть от 4 до 16 символов";
-    }
-    const isLoginUnique = function (allLogins, login) {
-      for (const allLogin of allLogins) {
-        if (allLogin === login) {
-          return "Такой логин уже используется!";
-        }
-        return "Логин успешно добавлен!";
-      }
-      allLogins.push(login);
-      console.log(allLogins);
-    };
-    isLoginUnique(allLogins, login);
-    return isLoginUnique(allLogins, login);
-  };
-  isLoginValid(login);
-  return isLoginValid(login);
-};
-console.log(addLogin(logins, "Ajax"));
+// const addLogin = function (allLogins, login) {
+//   const isLoginValid = function (login) {
+//     if (login.length < 4 || login.length > 16) {
+//       return "Ошибка! Логин должен быть от 4 до 16 символов";
+//     }
+//     const isLoginUnique = function (allLogins, login) {
+//       for (const allLogin of allLogins) {
+//         if (allLogin === login) {
+//           return "Такой логин уже используется!";
+//         }
+//         allLogins.push(login);
+//         console.log(allLogins);
+//         return "Логин успешно добавлен!";
+//       }
+//     };
+//     return isLoginUnique(allLogins, login);
+//   };
+//   return isLoginValid(login);
+// };
+// console.log(addLogin(logins, "Ajax"));
