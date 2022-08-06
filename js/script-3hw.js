@@ -1,4 +1,4 @@
-// Task number 1
+// Task 1
 // const user = {
 //   name: "Mango",
 //   age: 20,
@@ -7,42 +7,32 @@
 // };
 
 // user.mood = "happy";
-
 // user.hobby = "skydiving";
-
 // user.premium = false;
-// console.log(user);
-// const entries = Object.entries(user);
-// for (const entry of entries) {
-//   const key = entry[0];
-//   const value = entry[1];
-
-//   console.log(`${key}: ${value}`);
+// const keys = Object.keys(user);
+// for (const key of keys) {
+//   console.log(`${key}: ${user[key]}`);
 // }
+// console.log(user);
 
-// Task number 2
-
-// const countProps = function (obj) {
-//   const count = Object.keys(obj).length;
-//   return count;
+// Task 2
+// const countProps = (obj) => {
+//   return Object.values(obj).length;
 // };
-
 // console.log(countProps({}));
 // console.log(countProps({ name: "Mango", age: 2 }));
 // console.log(countProps({ mail: "poly@mail.com", isOnline: true, score: 500 }));
 
-// Task number 3
-
-// const findBestEmployee = function (employees) {
-//   const bestEmployee = Object.values(employees);
-//   const entries = Object.entries(employees);
-//   for (const entry of entries) {
-//     if (entry[1] === Math.max(...bestEmployee)) {
-//       return entry[0];
+// Task 3
+// const findBestEmployee = (employees) => {
+//   const valueEmployees = Object.values(employees);
+//   const bestEmployees = Object.entries(employees);
+//   for (const employ of bestEmployees) {
+//     if (employ[1] === Math.max(...valueEmployees)) {
+//       return `${employ[0]}:${employ[1]}`;
 //     }
 //   }
 // };
-
 // console.log(
 //   findBestEmployee({
 //     ann: 29,
@@ -51,7 +41,6 @@
 //     lorence: 99,
 //   })
 // );
-
 // console.log(
 //   findBestEmployee({
 //     poly: 12,
@@ -59,7 +48,6 @@
 //     ajax: 4,
 //   })
 // );
-
 // console.log(
 //   findBestEmployee({
 //     lux: 147,
@@ -69,16 +57,17 @@
 //   })
 // );
 
-// Task number 4
-// const countTotalSalary = function (employees) {
-//   let totalSalary = 0;
-//   for (const salary of Object.values(employees)) {
-//     totalSalary += salary;
+// Task 4
+// const countTotalSalary = (employees) => {
+//   let total = 0;
+//   const salary = Object.values(employees);
+//   for (const employ of salary) {
+//     total += employ;
 //   }
-//   return totalSalary;
+//   return total;
 // };
 
-// console.log(countTotalSalary({}));
+// console.log(countTotalSalary({})); // 0
 
 // console.log(
 //   countTotalSalary({
@@ -86,7 +75,7 @@
 //     poly: 150,
 //     alfred: 80,
 //   })
-// );
+// ); // 330
 
 // console.log(
 //   countTotalSalary({
@@ -94,9 +83,9 @@
 //     lux: 50,
 //     chelsy: 150,
 //   })
-// );
+// ); // 400
 
-// Task number 5
+// Task 5
 // const products = [
 //   { name: "Радар", price: 1300, quantity: 4 },
 //   { name: "Сканер", price: 2700, quantity: 3 },
@@ -105,22 +94,19 @@
 // ];
 
 // const getAllPropValues = function (arr, prop) {
-//   const values = [];
+//   const array = [];
 //   for (const obj of arr) {
-//     const array = Object.keys(obj);
-//     if (array.includes(prop)) {
-//       values.push(obj[prop]);
+//     if (Object.keys(obj).includes(prop)) {
+//       array.push(obj[prop]);
 //     }
 //   }
-//   return values;
+//   return array;
 // };
+// console.log(getAllPropValues(products, "name")); // ['Радар', 'Сканер', 'Дроид', 'Захват']
+// console.log(getAllPropValues(products, "quantity")); // [4, 3, 7, 2]
+// console.log(getAllPropValues(products, "category")); // []
 
-// console.log(getAllPropValues(products, "name"));
-// console.log(getAllPropValues(products, "quantity"));
-// console.log(getAllPropValues(products, "category"));
-
-// Task number 6
-
+// Task 6
 // const products = [
 //   { name: "Радар", price: 1300, quantity: 4 },
 //   { name: "Сканер", price: 2700, quantity: 3 },
@@ -128,78 +114,85 @@
 //   { name: "Захват", price: 1200, quantity: 2 },
 // ];
 
-// const calculateTotalPrice = function (allProducts, productName) {
-//   let totalPrice;
-//   for (const product of allProducts) {
-//     const productArray = Object.values(product);
-//     if (productArray.includes(productName)) {
-//       totalPrice = productArray[1] * productArray[2];
+// const calculateTotalPrice = function (allProdcuts, productName) {
+//   for (const product of allProdcuts) {
+//     const productEntries = Object.values(product);
+//     if (productEntries.includes(productName)) {
+//       return productEntries[1] * productEntries[2];
 //     }
 //   }
-//   return totalPrice;
 // };
 
-// console.log(calculateTotalPrice(products, "Радар"));
-// console.log(calculateTotalPrice(products, "Дроид"));
+// console.log(calculateTotalPrice(products, "Радар")); // 5200
+// console.log(calculateTotalPrice(products, "Дроид")); // 2800
 
-// Task number 7
+// Task 7
+/*
+ * Типов транзацкий всего два.
+ * Можно положить либо снять деньги со счета.
+ */
+const Transaction = {
+  DEPOSIT: "deposit",
+  WITHDRAW: "withdraw",
+};
 
-const Transaction = { DEPOSIT: "deposit", WITHDRAW: "withdraw" };
+/*
+ * Каждая транзакция это объект со свойствами: id, type и amount
+ */
 
 const account = {
+  // Текущий баланс счета
   balance: 0,
-  transaction: [],
+
+  // История транзакций
+  transactions: [],
+
   createTransaction(amount, type, id) {
     return { amount, type, id };
   },
   deposit(amount, id) {
     this.balance += amount;
 
-    const transaction = this.createTransaction(amount, Transaction.DEPOSIT, id);
-    this.transaction.push(transaction);
+    this.transactions.push(this.createTransaction(amount, "deposit", id));
+    return this.transactions;
   },
-  withdraw(amount) {
-    const transaction = this.createTransaction(amount, Transaction.WITHDRAW);
 
+  withdraw(amount, id) {
+    this.balance -= amount;
+    this.transactions.push(this.createTransaction(amount, "withdraw", id));
     if (amount > this.balance) {
-      console.log("Cнятие такой суммы не возможно, недостаточно средств");
-    } else {
-      this.transaction.push(transaction);
-      this.balance -= amount;
+      return "Cнятие такой суммы не возможно, недостаточно средств";
     }
+    return this.transactions;
   },
+
   getBalance() {
     return this.balance;
   },
+
   getTransactionDetails(id) {
-    for (const obj of this.transaction) {
-      if (obj.id === id) {
-        return obj;
+    for (const object of this.transactions) {
+      if (object.id === id) {
+        return object;
       }
     }
   },
+
   getTransactionTotal(type) {
     let total = 0;
-    for (const obj of this.transaction) {
-      if (obj.type === type) {
-        total += obj.amount;
+    for (const object of this.transactions) {
+      if (object.type === type) {
+        total += object.amount;
       }
     }
-    // for (let i = 0; i < this.transaction.length; ++i) {
-    //   console.log(this.transaction[i]);
-    //   if (this.transaction[i].type === type) {
-    //     total += this.transaction[i].amount;
-    //   }
-    // }
     return total;
   },
 };
 
-account.deposit(600, 123);
-account.deposit(568, 456);
-account.deposit(235, 254);
-account.withdraw(400);
-// console.log(account.getBalance());
-// console.log(account.getTransactionDetails(254));
-console.log(account.getTransactionTotal(Transaction.WITHDRAW));
-console.table(account);
+console.log(account.deposit(200, "001"));
+console.log(account.withdraw(100, "-001"));
+console.log(account.getBalance());
+console.log(account.deposit(300, "002"));
+console.log(account.getTransactionDetails("002"));
+console.log(account.getTransactionTotal("deposit"));
+console.log(account.getTransactionTotal("withdraw"));

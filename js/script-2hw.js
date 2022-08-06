@@ -1,8 +1,7 @@
-// /***/Task number 1
-
-// const logItems = function (array) {
-//   for (let i = 0; i < array.length; i++) {
-//     console.log(`Номер елемента ${i + 1} - Значение елемента '${array[i]}'`);
+// Task 1
+// const logItems = (array) => {
+//   for (let i = 0; i < array.length; i += 1) {
+//     console.log(`${[i + 1]} - ${array[i]}`);
 //   }
 // };
 
@@ -10,14 +9,12 @@
 
 // logItems([5, 10, 15, 20, 25, 30, 35, 40, 45, 50]);
 
-// /***/ Task number 2
-
-// const calculateEngravingPrice = function (message, pricePerWord) {
+// Task 2
+// const calculateEngravingPrice = (message, pricePerWord) => {
 //   const array = message.split(" ");
-//   const totalPrice = array.length * pricePerWord;
-//   console.log(`Цена гравировки ${totalPrice}`);
-//   return totalPrice;
+//   return array.length * pricePerWord;
 // };
+
 // console.log(
 //   calculateEngravingPrice(
 //     "Proin sociis natoque et magnis parturient montes mus",
@@ -40,14 +37,11 @@
 //   calculateEngravingPrice("Donec orci lectus aliquam est magnis", 20)
 // );
 
-// /***/  Task number 3
-// const findLongestWord = function (string) {
+// Task 3
+// const findLongestWord = (string) => {
 //   const array = string.split(" ");
-//   //   console.log(array);
 //   let longestWord = array[0];
 //   for (let i = 0; i < array.length; i++) {
-//     // console.log("array[i]", array[i]);
-//     // console.log("longestWord", longestWord);
 //     if (array[i].length > longestWord.length) {
 //       longestWord = array[i];
 //     }
@@ -61,14 +55,12 @@
 
 // console.log(findLongestWord("May the force be with you"));
 
-// /***/ Task number 4
-// const formatString = function (string) {
-//   if (string.length > 40) {
-//     return string.slice(0, 40) + " ...";
-//   }
+// Task 4
+// const formatString = (string) => {
 //   if (string.length < 40) {
 //     return string;
 //   }
+//   return `${string}..`;
 // };
 
 // console.log(formatString("Curabitur ligula sapien, tincidunt non."));
@@ -80,24 +72,55 @@
 //   )
 // );
 
-// /***/ Task number 5
-
-// const checkForSpam = function (message) {
-//   const messageArray = message
+// Task 5
+// const checkForSpam = (message) => {
+//   const array = message
 //     .toLowerCase()
 //     .replace(/[\[\]]/g, "")
 //     .split(" ");
-//   console.log(messageArray);
 
-//   return messageArray.includes("spam") || messageArray.includes("sale");
+//   return array.includes("spam") || array.includes("sale");
+//   //   if (array.includes("spam")) {
+//   //     return true;
+//   //   }
+//   //   if (array.includes("sale")) {
+//   //     return true;
+//   //   }
+//   //   return false;
 // };
-
 // console.log(checkForSpam("Latest technology news"));
 // console.log(checkForSpam("JavaScript weekly newsletter"));
-// console.log(checkForSpam("Get best sale offers now"));
-// console.log(checkForSpam("[SPAM] How to earn fast [money]"));
+// console.log(checkForSpam("Get best sale offers now!"));
+// console.log(checkForSpam("[SPAM] How to earn fast money?"));
 
-// /***/ Task number 6
+// Task 6
+
+// let input;
+// const numbers = [];
+// let total = 0;
+// const totalNumb = () => {
+//   for (let i = 0; i < 10; i++) {
+//     input = prompt("Введите число!");
+//     if (isNaN(input)) {
+//       alert("Было введено не число, попробуйте еще раз");
+//       return;
+//     }
+//     if (input === null) {
+//       for (const number of numbers) {
+//         total += +number;
+//       }
+//       return console.log(`Общая сумма чисел равна ${total}`);
+//     }
+//     if (input === "") {
+//       alert("Вы ничего не указали");
+//       return;
+//     }
+//     numbers.push(input);
+//   }
+// };
+// totalNumb();
+
+// or //
 
 // let input;
 // const numbers = [];
@@ -126,27 +149,31 @@
 // }
 // console.log(total);
 
-// /***/ Task number 7
+// Task 7
 
-// const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
+const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
 
-// const addLogin = function (allLogins, login) {
-//   const isLoginValid = function (login) {
-//     if (login.length < 4 || login.length > 16) {
-//       return "Ошибка! Логин должен быть от 4 до 16 символов";
-//     }
-//     const isLoginUnique = function (allLogins, login) {
-//       for (const allLogin of allLogins) {
-//         if (allLogin === login) {
-//           return "Такой логин уже используется!";
-//         }
-//         allLogins.push(login);
-//         console.log(allLogins);
-//         return "Логин успешно добавлен!";
-//       }
-//     };
-//     return isLoginUnique(allLogins, login);
-//   };
-//   return isLoginValid(login);
-// };
-// console.log(addLogin(logins, "Ajax"));
+const addLogin = (allLogins, login) => {
+  const isLoginValid = (login) => {
+    if (4 > login.length || 16 < login.length) {
+      return "Ошибка! Логин должен быть от 4 до 16 символов";
+    }
+    const isLoginUnique = (allLogins, login) => {
+      for (const oneLogin of allLogins) {
+        if (oneLogin === login) {
+          return "Такой логин уже используется!";
+        }
+      }
+      logins.push(login);
+      console.log(logins);
+      return "Логин успешно добавлен!";
+    };
+    return isLoginUnique(allLogins, login);
+  };
+  return isLoginValid(login);
+};
+
+console.log(addLogin(logins, "Ajax"));
+console.log(addLogin(logins, "robotGoogles"));
+console.log(addLogin(logins, "Zod"));
+console.log(addLogin(logins, "jqueryisextremelyfast"));

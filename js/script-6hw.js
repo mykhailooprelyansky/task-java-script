@@ -1,80 +1,87 @@
 import users from "./users.js";
 
-// // Task number 1
+// Task number 1
+// const getUserNames = (users) => {
+//   return users.map((user) => user.name);
+// };
 
-// const getUserNames = (array) => array.map(({ name }) => name);
 // console.log(getUserNames(users));
 
-// Task number 2
+// Task 2
+// const getUsersWithEyeColor = (users, color) => {
+//   return users.filter((user) => user.eyeColor === color);
+// };
 
-// const getUserWithEyeColor = (users, color) =>
-//   users.filter(({ eyeColor }) => eyeColor === color);
+// console.log(getUsersWithEyeColor(users, "blue"));
 
-// console.log(getUserWithEyeColor(users, "blue"));
+// Task 3
+// const getUsersWithGender = (users, gender) => {
+//   return users.filter((user) => user.gender === gender).map(({ name }) => name);
+// };
 
-// Task number 3
-
-// const getUsersWithGender = (users, maleFemale) =>
-//   users.filter(({ gender }) => gender === maleFemale).map(({ name }) => name);
 // console.log(getUsersWithGender(users, "male"));
 
-// Task number 4
-
-// const getInactiveUsers = (users) => users.filter(({ isActive }) => isActive);
+// Task 4
+// const getInactiveUsers = (users) => {
+//   return users.filter((user) => !user.isActive);
+// };
 
 // console.log(getInactiveUsers(users));
 
-// Task number 5
-// const getUserWithEmail = (users, mail) =>
-//   users.find(({ email }) => email === mail);
+// // Task 5
+// const getUserWithEmail = (users, email) => {
+//   return users.find((user) => user.email === email);
+// };
 
 // console.log(getUserWithEmail(users, "shereeanthony@kog.com"));
 // console.log(getUserWithEmail(users, "elmahead@omatom.com"));
 
-// Task number 6
-// const getUsersWithAge = (users, min, max) =>
-//   users.filter(({ age }) => age >= min && age <= max);
+// Task 6
+
+// const getUsersWithAge = (users, min, max) => {
+//   return users.filter((user) => user.age > min && user.age < max);
+// };
+
 // console.log(getUsersWithAge(users, 20, 30));
 // console.log(getUsersWithAge(users, 30, 40));
 
-// Task number 7
-// const calculateTotalBalance = (users) =>
-//   users.reduce((acc, { balance }) => acc + balance, 0);
+// Task 7
+// const calculateTotalBalance = (users) => {
+//   return users.reduce((acc, user) => acc + user.balance, 0);
+// };
 
 // console.log(calculateTotalBalance(users));
 
-// Task number 8
-// const getUsersWithFriend = (users, friendName) =>
-//   users
-//     .filter(({ friends }) => friends.includes(friendName))
+// Task 8
+// const getUsersWithFriend = (users, friendName) => {
+//   return users
+//     .filter((user) => user.friends.includes(friendName))
 //     .map(({ name }) => name);
+// };
 
 // console.log(getUsersWithFriend(users, "Briana Decker"));
 // console.log(getUsersWithFriend(users, "Goldie Gentry"));
 
-// Task number 9
-// const getNamesSortedByFriendsCount = (users) =>
-//   users
-//     .sort(
-//       (prevNumberFriends, nextNumberFriends) =>
-//         prevNumberFriends.friends.length - nextNumberFriends.friends.length
-//     )
-//     .map(({ name }) => name);
+// Task 9
+// const getNamesSortedByFriendsCount = (users) => {
+//   const sortByLength = (a, b) => a.friends.length - b.friends.length;
+//   return users.sort(sortByLength).map((user) => user.name);
+// };
+
 // console.log(getNamesSortedByFriendsCount(users));
 
-// Task number 10
-// const getSortedUniqueSkills = (users) =>
-//   users
-//     .reduce((allSkills, user) => {
-//       allSkills.push(...user.skills);
-//       return allSkills;
-//     }, [])
-//     .reduce((unique, item) => {
-//       return unique.includes(item) ? unique : [...unique, item];
-//     }, [])
-//     .sort();
+// Task 10
+const getSortedUniqueSkills = (users) =>
+  users
+    .reduce((allSkills, user) => {
+      allSkills.push(...user.skills);
+      return allSkills;
+    }, [])
+    .reduce((uniqueSkill, skill) => {
+      return uniqueSkill.includes(skill)
+        ? uniqueSkill
+        : [...uniqueSkill, skill];
+    }, [])
+    .sort();
 
-// console.log(getSortedUniqueSkills(users));
-// return [allSkills.push(...user.skills)].includes(skills)
-//   ? allSkills
-//   : [...allSkills, skills];
+console.log(getSortedUniqueSkills(users));

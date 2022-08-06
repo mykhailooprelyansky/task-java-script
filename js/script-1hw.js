@@ -1,133 +1,111 @@
-// /***/ Task number 1
+// Task 1
 // const name = "Генератор защитного поля";
 // let price = 1000;
 
-// console.log(`Выбран ${name}, цена за штуку ${price} кредитов`);
 // price = 2000;
-
 // console.log(`Выбран ${name}, цена за штуку ${price} кредитов`);
 
-// /***/ Task number 2
+// Task 2
 // const total = 100;
-// const ordered = prompt("Введите количество товара");
+// const ordered = 80;
+// const message =
+//   ordered > total
+//     ? console.log("На складе недостаточно товаров!")
+//     : console.log("Заказ оформлен, с вами свяжется менеджер");
 
-// if (ordered <= total) {
-//   console.log("Заказ оформлен, с вами свяжется менеджер");
-// } else {
+// if (ordered > total) {
 //   console.log("На складе недостаточно товаров!");
+// } else {
+//   console.log("Заказ оформлен, с вами свяжется менеджер");
 // }
 
-// /***/ Task number 3
-// const password = prompt("Введите пароль");
+// Task 3
 // const ADMIN_PASSWORD = "jqueryismyjam";
 // let message;
 
-// if (password === null) {
-//   alert((message = "Отменено пользователем!"));
-// } else if (password === ADMIN_PASSWORD) {
-//   alert((message = "Добро пожаловать!"));
-// } else {
-//   alert((message = "Доступ запрещен, неверный пароль!"));
-// }
+// const adminPassword = prompt("Введите пароль");
 
-// /***/ Task number 4
+// switch (adminPassword) {
+//   case "jqueryismyjam":
+//     message = "Добро пожаловать!";
+//     break;
+
+//   case null:
+//     message = "Отменено пользователем!";
+//     break;
+
+//   default:
+//     message = "Доступ запрещен, неверный пароль!";
+// }
+// console.log(message);
+
+// Task 4
+
 // const credits = 23580;
 // const pricePerDroid = 3000;
-// const number = prompt("Сколько дроидов вы хотите купить?");
+// const howMachDroid = prompt("Сколько дроидов вы хотите купить?");
 // let totalPrice;
 
-// if (number === null) {
+// if (howMachDroid === null) {
 //   console.log("Отменено пользователем!");
 // } else {
-//   totalPrice = number * pricePerDroid;
-//   console.log(`Общая цена ${totalPrice} кредитов`);
+//   totalPrice = howMachDroid * 3000;
+//   console.log(totalPrice);
 // }
 
 // if (totalPrice > credits) {
 //   console.log("Недостаточно средств на счету!");
+// } else if (howMachDroid === null) {
+//   console.log("Вы отменили покупку");
 // } else {
 //   console.log(
-//     `Вы купили ${number} дроидов, на счету осталось ${
+//     `Вы купили ${howMachDroid} дроидов, на счету осталось ${
 //       credits - totalPrice
 //     } кредитов.`
 //   );
 // }
 
-// /***/ Task number 5
-// const country = prompt("Введите страну куда нужно доставить товар");
-// const normCountry = country.toLowerCase();
-// let costDeliver;
-// switch (normCountry) {
-//   case "china":
-//     costDeliver = 100;
-//     alert(`Доставка в Китай будет стоить ${costDeliver} кредитов`);
+// Task 5
+// let cost;
+// const country = prompt("Введите страну").toLowerCase();
+
+// switch (country) {
+//   case "китай":
+//     cost = 100;
 //     break;
-//   case "chile":
-//     costDeliver = 250;
-//     alert(`Доставка в Чили будет стоить ${costDeliver} кредитов`);
+//   case "чили":
+//     cost = 250;
 //     break;
-//   case "australia":
-//     costDeliver = 170;
-//     alert(`Доставка в Австралия будет стоить ${costDeliver} кредитов`);
+//   case "австралия":
+//     cost = 170;
 //     break;
-//   case "india":
-//     costDeliver = 80;
-//     alert(`Доставка в Индия будет стоить ${costDeliver} кредитов`);
+//   case "индия":
+//     cost = 80;
 //     break;
-//   case "jamaica":
-//     costDeliver = 120;
-//     alert(`Доставка в Ямайка будет стоить ${costDeliver} кредитов`);
+//   case "ямайка":
+//     cost = 120;
 //     break;
 //   default:
 //     alert("В вашей стране доставка не доступна");
 // }
+// alert(`Доставка в ${country} будет стоить ${cost} кредитов`);
 
-// /***/ Task number 6
+// Task 6
 
-// let input = prompt("Введите число");
-// let total = 0;
-
-// for (input = 0; input; input + total) {}
-// input = prompt("Введите число");
-
-// while (input) {
-//   totalAll = total + input;
-// }
-// alert(`Общая сумма чисел равна ${totalAll}`);
-
-// do {
-//   total = prompt("Введите число");
-// } while (total !== null);
-
-// console.log(total);
-
-let input;
-let number = 0;
+let numb;
+let total = 0;
 
 for (let i = 0; i < 10; i++) {
-  input = prompt("Введите число");
-  console.log(isNaN(input));
-  if (isNaN(input)) {
-    alert("Было введено не число, попробуйте еще раз !!!");
+  numb = prompt("Введите число!");
+  if (isNaN(numb)) {
+    alert("Было введено не число, попробуйте еще раз");
     break;
   }
-  if (input === null) {
-    alert(`Общая сумма чисел равна ${number}`);
+  if (numb === null) {
+    alert(`Общая сума ровна ${total}`);
     break;
   }
-  number = number + +input;
+  total += +numb;
 }
 
-// const sum = function () {
-//   let total = 0;
-
-//   for (const argument of arguments) {
-//     total += argument;
-//   }
-
-//   return total;
-// };
-
-// console.log(sum(1, 2, 3)); //  6
-// console.log(sum(1, 2, 3, 4)); //  10
-// console.log(sum(1, 2, 3, 4, 5)); //  15
+console.log(total);
